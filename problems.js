@@ -28,9 +28,9 @@ const getBookTiles = (arr) => {
 console.log(getBookTiles(books)); //[ 'The Great Gatsby', '1984', 'The Hobbit' ]
 
 // 3.Task: Function Composition
-const square = n => n * n;
-const double = n => n * 2;
-const addFive = n => n + 5;
+const square = num => num * num;
+const double = num => num * 2;
+const addFive = num => num + 5;
 
 const composedFn = (num) => addFive(double(square(num)));
 
@@ -38,10 +38,10 @@ console.log(composedFn(3)); // 23
 
 // 4.Task: Sorting Objects
 const cars = [
-    { make: "Toyota", model: "Corolla", year: 2020 },
-    { make: "Honda", model: "Civic", year: 2019 },
+    { make: "Toyota", model: "Corolla X", year: 2020 },
+    { make: "Honda", model: "Civic 2", year: 2019 },
     { make: "Tesla", model: "Model 3", year: 2022 },
-    { make: "BMW", model: "X5", year: 2018 },
+    { make: "BMW", model: "X5S", year: 2018 },
     { make: "Ford", model: "Mustang", year: 2021 }
 ];
 
@@ -51,7 +51,7 @@ console.log(sortByYear(cars));
 
 // 5.Task: Find and Modify
 const personArr = [
-    { name: "Alice", age: 25, gender: "female" },
+    { name: "Alia", age: 25, gender: "female" },
     { name: "Ronaldo", age: 40, gender: "male" },
     { name: "Nickolas", age: 28, gender: "male" },
     { name: "Lusi", age: 25, gender: "female" },
@@ -65,7 +65,7 @@ const updateAge = (arr, personName, newAge) => {
     );
 };
 
-console.log(updateAge(personArr, "Alice", 26));
+console.log(updateAge(personArr, "Alia", 26));
 
 // 6.Task: Array Reduction
 const numbers = [1, 2, 3, 4, 5, 6];
@@ -78,41 +78,12 @@ console.log(sumEvens(numbers)); // 12
 
 // 7. Task: Leap Year Checker
 const isLeapYear = (year) => {
-    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+    if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+        return `${year} is a leap year. Happy New Year`
+    } else {
+        return `${year} is not leap year`
+    }
 };
 
-console.log(isLeapYear(2024)); // true
-console.log(isLeapYear(2026)); // false
-
-// 08.Task: Advanced Sorting
-const students = [
-    { name: "Alice", grades: [80, 90, 100] }, // Avg: 90
-    { name: "Bob", grades: [70, 70, 80] },    // Avg: 73.3
-    { name: "Charlie", grades: [90, 95, 100] } // Avg: 95
-];
-
-const sortByAverage = (arr) => {
-    return [...arr].sort((a, b) => {
-        const avgA = a.grades.reduce((s, g) => s + g, 0) / a.grades.length;
-        const avgB = b.grades.reduce((s, g) => s + g, 0) / b.grades.length;
-        return avgB - avgA; // Descending
-    });
-};
-
-console.log(sortByAverage(students));
-
-
-// 09.Task: Functional Programming - Reduce
-const inventory = [
-    { name: "Laptop", quantity: 2, price: 1000 },
-    { name: "Mouse", quantity: 5, price: 50 }
-];
-
-const getTotalValue = (items) => {
-    return items.reduce((total, item) => {
-        return total + (item.quantity * item.price);
-    }, 0);
-}
-
-console.log(getTotalValue(inventory));
-
+console.log(isLeapYear(2024)); // 2024 is a leap year. Happy New Year
+console.log(isLeapYear(2026)); // is not leap year
