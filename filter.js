@@ -30,7 +30,20 @@
 // // Output
 // [1, true, "JS"]
 
-const values = [0, 1, false, true, "", "JS", null, undefined];
+// const values = [0, 1, false, true, "", "JS", null, undefined];
 
-const result = values.filter((value) => value && true);
+// const result = values.filter((value) => value && true);
+// console.log(result);
+
+// 4️⃣ Remove duplicate values (Interview classic)
+// // Input
+// [1, 2, 2, 3, 3, 4]
+
+// // Output
+// [1, 2, 3, 4]
+
+const values = [1, 2, 2, 3, 3, 4];
+
+const result = values.filter((value, i, arr) => arr.indexOf(value) === i);
+
 console.log(result);
