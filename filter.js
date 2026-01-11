@@ -136,3 +136,27 @@
 // const result = users.filter((user) => user && user.trim());
 
 // console.log(result);
+
+// 9️⃣ Price range filter(Backend - style)
+// // Input
+// [
+//     { product: "Phone", price: 30000 },
+//     { product: "Laptop", price: 80000 },
+//     { product: "Tablet", price: 20000 }
+// ]
+
+// // Output (price ≥ 30000)
+// [
+//     { product: "Phone", price: 30000 },
+//     { product: "Laptop", price: 80000 }
+// ]
+
+const products = [
+    { product: "Phone", price: 30000 },
+    { product: "Laptop", price: 80000 },
+    { product: "Tablet", price: 20000 }
+]
+
+const result = products.filter((product) => product.price >= 30000)
+
+console.log(result);
