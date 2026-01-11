@@ -42,8 +42,32 @@
 // // Output
 // [1, 2, 3, 4]
 
-const values = [1, 2, 2, 3, 3, 4];
+// const values = [1, 2, 2, 3, 3, 4];
 
-const result = values.filter((value, i, arr) => arr.indexOf(value) === i);
+// const result = values.filter((value, i, arr) => arr.indexOf(value) === i);
+
+// console.log(result);
+
+// 5️⃣ Active users only (Objects)
+// // Input
+// [
+//   { name: "Emon", isActive: true },
+//   { name: "Pappu", isActive: false },
+//   { name: "Rahim", isActive: true }
+// ]
+
+// // Output
+// [
+//   { name: "Emon", isActive: true },
+//   { name: "Rahim", isActive: true }
+// ]
+
+const users = [
+    { name: "Emon", isActive: true },
+    { name: "Pappu", isActive: false },
+    { name: "Rahim", isActive: true }
+]
+
+const result = users.filter((user) => user.isActive)
 
 console.log(result);
