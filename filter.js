@@ -151,12 +151,40 @@
 //     { product: "Laptop", price: 80000 }
 // ]
 
-const products = [
-    { product: "Phone", price: 30000 },
-    { product: "Laptop", price: 80000 },
-    { product: "Tablet", price: 20000 }
+// const products = [
+//     { product: "Phone", price: 30000 },
+//     { product: "Laptop", price: 80000 },
+//     { product: "Tablet", price: 20000 }
+// ]
+
+// const result = products.filter((product) => product.price >= 30000)
+
+// console.log(result);
+
+// 🔟 Permission - based access(Industry level)
+// // Input
+// const role = "admin";
+
+// [
+//     { page: "Dashboard", roles: ["admin", "user"] },
+//     { page: "Settings", roles: ["admin"] },
+//     { page: "Profile", roles: ["user"] }
+// ]
+
+// // Output
+// [
+//     { page: "Dashboard", roles: ["admin", "user"] },
+//     { page: "Settings", roles: ["admin"] }
+// ]
+
+const role = "admin";
+
+const users = [
+    { page: "Dashboard", roles: ["admin", "user"] },
+    { page: "Settings", roles: ["admin"] },
+    { page: "Profile", roles: ["user"] }
 ]
 
-const result = products.filter((product) => product.price >= 30000)
+const result = users.filter((user) => user.roles.includes(role))
 
 console.log(result);
