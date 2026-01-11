@@ -62,12 +62,64 @@
 //   { name: "Rahim", isActive: true }
 // ]
 
-const users = [
-    { name: "Emon", isActive: true },
-    { name: "Pappu", isActive: false },
-    { name: "Rahim", isActive: true }
+// const users = [
+//     { name: "Emon", isActive: true },
+//     { name: "Pappu", isActive: false },
+//     { name: "Rahim", isActive: true }
+// ]
+
+// const result = users.filter((user) => user.isActive)
+
+// console.log(result);
+
+// 6️⃣ Adults only (Condition logic)
+// // Input
+// [
+//   { name: "Emon", age: 22 },
+//   { name: "Pappu", age: 16 },
+//   { name: "Rahim", age: 18 }
+// ]
+
+// // Output
+// [
+//   { name: "Emon", age: 22 },
+//   { name: "Rahim", age: 18 }
+// ]
+
+// const users = [
+//     { name: "Emon", age: 22 },
+//     { name: "Pappu", age: 16 },
+//     { name: "Rahim", age: 18 }
+// ]
+
+// const result = users.filter((user) => user.age
+//     >= 18)
+
+// console.log(result);
+
+// 7️⃣ Search filter(Frontend - style)
+// // Input
+// const search = "js";
+
+// [
+//     "JavaScript",
+//     "React",
+//     "NodeJS",
+//     "CSS"
+// ]
+
+// // Output
+// ["JavaScript", "NodeJS"]
+
+const search = "s";
+
+const skills = [
+    "JavaScript",
+    "React",
+    "NodeJS",
+    "CSS"
 ]
 
-const result = users.filter((user) => user.isActive)
+const result = skills.filter((skill) => skill.toLowerCase().includes(search.toLowerCase()))
 
 console.log(result);
