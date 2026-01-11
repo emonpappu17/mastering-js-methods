@@ -111,15 +111,28 @@
 // // Output
 // ["JavaScript", "NodeJS"]
 
-const search = "s";
+// const search = "s";
 
-const skills = [
-    "JavaScript",
-    "React",
-    "NodeJS",
-    "CSS"
-]
+// const skills = [
+//     "JavaScript",
+//     "React",
+//     "NodeJS",
+//     "CSS"
+// ]
 
-const result = skills.filter((skill) => skill.toLowerCase().includes(search.toLowerCase()))
+// const result = skills.filter((skill) => skill.toLowerCase().includes(search.toLowerCase()))
 
-console.log(result);
+// console.log(result);
+
+// 8️⃣ Remove null / undefined (Data cleaning)
+// // Input
+// ["Emon", null, "Pappu", undefined, "", "Rahim"]
+
+// // Output
+// ["Emon", "Pappu", "Rahim"]
+
+// const users = ["Emon", null, "Pappu", undefined, "  ", "Rahim"];
+
+// const result = users.filter((user) => user && user.trim());
+
+// console.log(result);
