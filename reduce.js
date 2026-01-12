@@ -55,15 +55,41 @@ const products = [
 // }
 
 
-const result = products.reduce((acc, currentProduct) => {
-    if (currentProduct.inStock) {
-        if (!acc[currentProduct.category]) {
-            acc[currentProduct.category] = { items: [], totalValue: 0 }
+// const result = products.reduce((acc, currentProduct) => {
+//     if (currentProduct.inStock) {
+//         if (!acc[currentProduct.category]) {
+//             acc[currentProduct.category] = { items: [], totalValue: 0 }
+//         }
+//         acc[currentProduct.category]?.items?.push(currentProduct.name);
+//         acc[currentProduct.category].totalValue += currentProduct.price;
+//     }
+
+//     return acc
+// }, {})
+// console.log(result);
+
+const posts = [
+    { author: 'Alice', tags: ['javascript', 'react', 'nodejs'] },
+    { author: 'Bob', tags: ['python', 'javascript'] },
+    { author: 'Charlie', tags: ['react', 'javascript', 'css'] },
+    { author: 'David', tags: ['nodejs', 'python', 'javascript'] }
+];
+// 4. Find the most used tag and how many times it appears
+// Expected: { tag: 'javascript', count: 4 }
+
+const result = posts.reduce((acc, post) => {
+    post.tags.forEach((tag) => {
+        acc.tagCounts[tag] = (acc.tagCounts[tag] || 0) + 1;
+
+        if (acc.tagCounts[tag] > acc.mostUsed.count) {
+            acc.mostUsed = {
+                tag: tag,
+                count: acc.tagCounts[tag]
+            }
         }
-        acc[currentProduct.category]?.items?.push(currentProduct.name);
-        acc[currentProduct.category].totalValue += currentProduct.price;
-    }
+    })
 
     return acc
-}, {})
+}, { tagCounts: {}, mostUsed: { tag: '', count: 0 } }).mostUsed
+
 console.log(result);
