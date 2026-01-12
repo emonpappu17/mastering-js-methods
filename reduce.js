@@ -29,15 +29,41 @@ const students = [
 // 2. Get names of students with average grade >= 80
 // Expected: ['John', 'Jack']
 
-const result = students.reduce((acc, student) => {
-    const sum = student.grades.reduce((total, grade) => total + grade, 0);
-    const average = sum / student.grades.length;
+// const result = students.reduce((acc, student) => {
+//     const sum = student.grades.reduce((total, grade) => total + grade, 0);
+//     const average = sum / student.grades.length;
 
-    if (average >= 80) {
-        acc.push(student.name);
+//     if (average >= 80) {
+//         acc.push(student.name);
+//     }
+
+//     return acc;
+// }, []);
+
+// console.log(result);
+
+const products = [
+    { id: 1, name: 'Laptop', category: 'Electronics', inStock: true, price: 1000 },
+    { id: 2, name: 'Mouse', category: 'Electronics', inStock: false, price: 25 },
+    { id: 3, name: 'Desk', category: 'Furniture', inStock: true, price: 200 },
+    { id: 4, name: 'Chair', category: 'Furniture', inStock: true, price: 150 }
+];
+// 3. Group by category, but only include in-stock items with their total value
+// Expected: {
+//   Electronics: { items: ['Laptop'], totalValue: 1000 },
+//   Furniture: { items: ['Desk', 'Chair'], totalValue: 350 }
+// }
+
+
+const result = products.reduce((acc, currentProduct) => {
+    if (currentProduct.inStock) {
+        if (!acc[currentProduct.category]) {
+            acc[currentProduct.category] = { items: [], totalValue: 0 }
+        }
+        acc[currentProduct.category]?.items?.push(currentProduct.name);
+        acc[currentProduct.category].totalValue += currentProduct.price;
     }
 
-    return acc;
-}, []);
-
+    return acc
+}, {})
 console.log(result);
