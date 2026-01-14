@@ -92,3 +92,31 @@ const emailUserExist = users.find((user) => user.email === 'bob@example.com');
 console.log(emailUserExist);
 
 
+// 4. Working with Nested Data
+const orders = [
+    { orderId: 'A1', customer: 'John', items: ['Laptop', 'Mouse'], total: 1025, paid: true },
+    { orderId: 'A2', customer: 'Jane', items: ['Keyboard'], total: 75, paid: false },
+    { orderId: 'A3', customer: 'Bob', items: ['Monitor', 'Cable'], total: 350, paid: true },
+    { orderId: 'A4', customer: 'Alice', items: ['Desk'], total: 200, paid: false }
+];
+
+// Task A: Use forEach to create a summary report logging:
+//         "Order A1: John - $1025 - Status: Paid"
+// Task B: Use find to get the first unpaid order
+// Task C: Use findIndex to find position of order that contains 'Monitor'
+// Expected:
+
+// A: Logs 4 lines with order summaries
+// B: { orderId: 'A2', customer: 'Jane', ... }
+// C: 2
+
+orders.forEach((order) => {
+    const status = order.paid ? 'Paid' : 'Unpaid';
+    console.log(`Order ${order.orderId}: ${order.customer} - $${order.total} - Status: ${status}`);
+})
+
+const firstUnpaidOrder = orders.find(order => !order.paid)
+console.log(firstUnpaidOrder);
+
+const monitorIndex = orders.findIndex((order) => order.items.includes('Monitor'))
+console.log(monitorIndex);
