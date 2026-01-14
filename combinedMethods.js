@@ -64,3 +64,31 @@ students.forEach((student) => {
 })
 console.log(students);
 console.log(grades);
+
+// 3. Complex Search with Conditions
+const users = [
+    { id: 1, username: 'john_doe', email: 'john@example.com', age: 25, active: true },
+    { id: 2, username: 'jane_smith', email: 'jane@example.com', age: 30, active: false },
+    { id: 3, username: 'bob_jones', email: 'bob@example.com', age: 35, active: true },
+    { id: 4, username: 'alice_wonder', email: 'alice@example.com', age: 28, active: true }
+];
+
+// Task A: Use find to get the first active user who is older than 30
+// Task B: Use findIndex to locate the inactive user's position
+// Task C: Use find to check if email 'bob@example.com' exists (return the user or undefined)
+// Expected:
+
+// A: { id: 3, username: 'bob_jones', ... }
+// B: 1
+// C: { id: 3, username: 'bob_jones', email: 'bob@example.com', age: 35, active: true }
+
+const activeUser = users.find((user) => user.active && user.age > 30);
+console.log(activeUser);
+
+const inActiveUserIndex = users.findIndex((user) => !user.active);
+console.log(inActiveUserIndex);
+
+const emailUserExist = users.find((user) => user.email === 'bob@example.com');
+console.log(emailUserExist);
+
+
