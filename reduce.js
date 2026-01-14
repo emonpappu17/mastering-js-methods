@@ -92,4 +92,52 @@ const result = posts.reduce((acc, post) => {
     return acc
 }, { tagCounts: {}, mostUsed: { tag: '', count: 0 } }).mostUsed
 
-console.log(result);
+// console.log(result);
+
+
+const transactions = [
+    { date: '2024-01-15', type: 'income', amount: 5000, category: 'salary' },
+    { date: '2024-01-16', type: 'expense', amount: 200, category: 'food' },
+    { date: '2024-01-17', type: 'expense', amount: 1000, category: 'rent' },
+    { date: '2024-01-18', type: 'income', amount: 500, category: 'freelance' },
+    { date: '2024-01-19', type: 'expense', amount: 150, category: 'food' },
+    { date: '2024-01-20', type: 'expense', amount: 300, category: 'utilities' }
+];
+// Use ONE reduce to create a financial summary:
+// Expected: {
+//   totalIncome: 5500,
+//   totalExpense: 1650,
+//   balance: 3850,
+//   expenseByCategory: { food: 350, rent: 1000, utilities: 300 },
+//   largestExpense: { date: '2024-01-17', amount: 1000, category: 'rent' }
+// }
+
+const financialSummary = transactions.reduce((acc, transaction) => {
+    if (transaction.type === "income") {
+        acc.totalIncome += transaction.amount
+    }
+    if (transaction.type === "expense") {
+        acc.totalExpense += transaction.amount
+
+        acc.expenseByCategory[transaction.category] = (acc.expenseByCategory[transaction.category] || 0) + transaction.amount;
+
+        if (transaction.amount > acc.largestExpense.amount) {
+            acc.largestExpense = {
+                date: transaction.date,
+                amount: transaction.amount,
+                category: transaction.category
+            }
+        }
+    }
+
+    acc.balance = acc.totalIncome - acc.totalExpense;
+    return acc
+}, {
+    totalIncome: 0,
+    totalExpense: 0,
+    balance: 0,
+    expenseByCategory: {},
+    largestExpense: { date: '', amount: 0, category: '' }
+})
+
+console.log(financialSummary);
