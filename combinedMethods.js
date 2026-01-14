@@ -26,3 +26,41 @@ console.log(product);
 // Task C: Use findIndex to get the position of the out-of-stock item
 const outOfStockIndex = products.findIndex(product => product.stock === 0);
 console.log(outOfStockIndex);
+
+// 2. Modify External Data (forEach specialty)
+const students = [
+    { name: 'Alice', score: 85 },
+    { name: 'Bob', score: 92 },
+    { name: 'Charlie', score: 78 },
+    { name: 'David', score: 95 }
+];
+
+const grades = [];
+
+// Use forEach to:
+// 1. Add 5 bonus points to each student's score
+// 2. Push their grade letter to grades array
+//    (A: 90+, B: 80-89, C: 70-79, D: <70)
+// Expected:
+
+// Modified students with scores: 90, 97, 83, 100
+// grades array: ['A', 'A', 'B', 'A']
+
+students.forEach((student) => {
+    student.score += 5;
+
+    let grade;
+
+    if (student.score >= 90) {
+        grade = 'A'
+    } else if (student.score >= 80) {
+        grade = 'B'
+    } else if (student.score >= 70) {
+        grade = 'c'
+    } else {
+        grade = 'D'
+    }
+    grades.push(grade)
+})
+console.log(students);
+console.log(grades);
