@@ -66,12 +66,12 @@ console.log(students);
 console.log(grades);
 
 // 3. Complex Search with Conditions
-const users = [
-    { id: 1, username: 'john_doe', email: 'john@example.com', age: 25, active: true },
-    { id: 2, username: 'jane_smith', email: 'jane@example.com', age: 30, active: false },
-    { id: 3, username: 'bob_jones', email: 'bob@example.com', age: 35, active: true },
-    { id: 4, username: 'alice_wonder', email: 'alice@example.com', age: 28, active: true }
-];
+// const users = [
+//     { id: 1, username: 'john_doe', email: 'john@example.com', age: 25, active: true },
+//     { id: 2, username: 'jane_smith', email: 'jane@example.com', age: 30, active: false },
+//     { id: 3, username: 'bob_jones', email: 'bob@example.com', age: 35, active: true },
+//     { id: 4, username: 'alice_wonder', email: 'alice@example.com', age: 28, active: true }
+// ];
 
 // Task A: Use find to get the first active user who is older than 30
 // Task B: Use findIndex to locate the inactive user's position
@@ -82,14 +82,14 @@ const users = [
 // B: 1
 // C: { id: 3, username: 'bob_jones', email: 'bob@example.com', age: 35, active: true }
 
-const activeUser = users.find((user) => user.active && user.age > 30);
-console.log(activeUser);
+// const activeUser = users.find((user) => user.active && user.age > 30);
+// console.log(activeUser);
 
-const inActiveUserIndex = users.findIndex((user) => !user.active);
-console.log(inActiveUserIndex);
+// const inActiveUserIndex = users.findIndex((user) => !user.active);
+// console.log(inActiveUserIndex);
 
-const emailUserExist = users.find((user) => user.email === 'bob@example.com');
-console.log(emailUserExist);
+// const emailUserExist = users.find((user) => user.email === 'bob@example.com');
+// console.log(emailUserExist);
 
 
 // 4. Working with Nested Data
@@ -137,10 +137,39 @@ const fruits = ['apple', 'banana', 'orange', 'mango'];
 // C: false (grape is not in array)
 
 const isUnderAge = ages.some((age) => age < 18);
-console.log('isUnderAge==>', isUnderAge);
+// console.log('isUnderAge==>', isUnderAge);
 
 const isAllNumberEven = numbers.every((num) => (num % 2) === 0)
-console.log('isAllNumberEven==>', isAllNumberEven);
+// console.log('isAllNumberEven==>', isAllNumberEven);
 
 const isGrapeInclude = fruits.includes('grape');
-console.log('isGrapeInclude==>', isGrapeInclude);
+// console.log('isGrapeInclude==>', isGrapeInclude);
+
+// 2. User Access Control
+const users = [
+    { name: 'Alice', age: 25, isAdmin: false, verified: true },
+    { name: 'Bob', age: 30, isAdmin: true, verified: true },
+    { name: 'Charlie', age: 22, isAdmin: false, verified: false },
+    { name: 'David', age: 28, isAdmin: false, verified: true }
+];
+
+const allowedRoles = ['admin', 'moderator', 'user'];
+const currentUserRole = 'editor';
+
+// Task A: Use some() to check if there's at least one admin in the system
+// Task B: Use every() to check if all users are verified
+// Task C: Use includes() to check if currentUserRole is in allowedRoles
+// Expected:
+
+// A: true(Bob is admin)
+// B: false(Charlie is not verified)
+// C: false(editor is not in allowedRoles)
+
+const isOneAdminExist = users.some((user) => user.isAdmin);
+console.log('isOneAdminExist==>', isOneAdminExist);
+
+const isAllUsersVerified = users.every(user => user.verified)
+console.log('isAllUsersVerified=>', isAllUsersVerified);
+
+const isCurrentRoleAllowed = allowedRoles.includes(currentUserRole)
+console.log('isCurrentRoleAllowed==>', isCurrentRoleAllowed);
