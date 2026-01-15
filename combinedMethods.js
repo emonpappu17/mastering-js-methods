@@ -112,11 +112,35 @@ const orders = [
 
 orders.forEach((order) => {
     const status = order.paid ? 'Paid' : 'Unpaid';
-    console.log(`Order ${order.orderId}: ${order.customer} - $${order.total} - Status: ${status}`);
+    // console.log(`Order ${order.orderId}: ${order.customer} - $${order.total} - Status: ${status}`);
 })
 
 const firstUnpaidOrder = orders.find(order => !order.paid)
-console.log(firstUnpaidOrder);
+// console.log(firstUnpaidOrder);
 
-const monitorIndex = orders.findIndex((order) => order.items.includes('Monitor'))
-console.log(monitorIndex);
+const monitorIndex = orders.findIndex((order) => order.items.includes('Monitor'));
+// console.log(monitorIndex);
+
+
+// 1. Basic Validation Checks
+const ages = [16, 18, 21, 25, 30];
+const numbers = [2, 4, 6, 8, 10];
+const fruits = ['apple', 'banana', 'orange', 'mango'];
+
+// Task A: Use some() to check if ANY person is under 18
+// Task B: Use every() to check if ALL numbers are even
+// Task C: Use includes() to check if 'grape' is in the fruits array
+// Expected:
+
+// A: true (16 is under 18)
+// B: true (all are even: 2, 4, 6, 8, 10)
+// C: false (grape is not in array)
+
+const isUnderAge = ages.some((age) => age < 18);
+console.log('isUnderAge==>', isUnderAge);
+
+const isAllNumberEven = numbers.every((num) => (num % 2) === 0)
+console.log('isAllNumberEven==>', isAllNumberEven);
+
+const isGrapeInclude = fruits.includes('grape');
+console.log('isGrapeInclude==>', isGrapeInclude);
