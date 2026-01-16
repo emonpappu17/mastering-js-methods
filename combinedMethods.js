@@ -199,18 +199,42 @@ const selectedPayment = 'crypto';
 // D: true (Order A1 contains Laptop)
 // E: true (all orders have items)
 
-const isAnyOrderUnpaid = orders.some(order => !order.paid)
-console.log('isAnyOrderUnpaid', isAnyOrderUnpaid);
+// const isAnyOrderUnpaid = orders.some(order => !order.paid)
+// console.log('isAnyOrderUnpaid', isAnyOrderUnpaid);
 
-const isAllOrderShipped = orders.every(order => order.paid && order.shipped)
-console.log('isAllOrderShipped==>', isAllOrderShipped);
+// const isAllOrderShipped = orders.every(order => order.paid && order.shipped)
+// console.log('isAllOrderShipped==>', isAllOrderShipped);
 
-const isPaymentAvailable = availablePaymentMethods.includes(selectedPayment);
-console.log("==>", isPaymentAvailable);
+// const isPaymentAvailable = availablePaymentMethods.includes(selectedPayment);
+// console.log("==>", isPaymentAvailable);
 
-const isAnyOrderContainsLaptop = orders.some(order => order.items.includes('Laptop'))
+// const isAnyOrderContainsLaptop = orders.some(order => order.items.includes('Laptop'))
 
-console.log('isAnyOrderContainsLaptop==>', isAnyOrderContainsLaptop);
+// console.log('isAnyOrderContainsLaptop==>', isAnyOrderContainsLaptop);
 
-const isAtLeastOneItem = orders.every(order => order.items.length);
-console.log(';isAtLeastOneItem=>', isAtLeastOneItem);
+// const isAtLeastOneItem = orders.every(order => order.items.length);
+// console.log(';isAtLeastOneItem=>', isAtLeastOneItem);
+
+// 1. Basic Stack and Queue Operations
+const stack = [1, 2, 3];
+const queue = ['first', 'second', 'third'];
+
+// Task A: Use push() to add 4 and 5 to the stack
+// Task B: Use pop() to remove the last element from stack
+// Task C: Use shift() to remove the first element from queue
+// Task D: Use unshift() to add 'zero' to the beginning of queue
+// Expected:
+
+// A: stack becomes [1, 2, 3, 4, 5]
+// B: Returns 5, stack becomes [1, 2, 3, 4]
+// C: Returns 'first', queue becomes ['second', 'third']
+// D: queue becomes ['zero', 'second', 'third']
+
+// stack.push(4, 5)
+// console.log('stack==>', stack);
+
+// console.log(stack.pop());
+// console.log(queue);
+// console.log(queue.shift());
+// console.log(queue.unshift("zero"));
+// console.log(queue);
