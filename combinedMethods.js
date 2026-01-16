@@ -93,12 +93,12 @@ console.log(grades);
 
 
 // 4. Working with Nested Data
-const orders = [
-    { orderId: 'A1', customer: 'John', items: ['Laptop', 'Mouse'], total: 1025, paid: true },
-    { orderId: 'A2', customer: 'Jane', items: ['Keyboard'], total: 75, paid: false },
-    { orderId: 'A3', customer: 'Bob', items: ['Monitor', 'Cable'], total: 350, paid: true },
-    { orderId: 'A4', customer: 'Alice', items: ['Desk'], total: 200, paid: false }
-];
+// const orders = [
+//     { orderId: 'A1', customer: 'John', items: ['Laptop', 'Mouse'], total: 1025, paid: true },
+//     { orderId: 'A2', customer: 'Jane', items: ['Keyboard'], total: 75, paid: false },
+//     { orderId: 'A3', customer: 'Bob', items: ['Monitor', 'Cable'], total: 350, paid: true },
+//     { orderId: 'A4', customer: 'Alice', items: ['Desk'], total: 200, paid: false }
+// ];
 
 // Task A: Use forEach to create a summary report logging:
 //         "Order A1: John - $1025 - Status: Paid"
@@ -110,15 +110,15 @@ const orders = [
 // B: { orderId: 'A2', customer: 'Jane', ... }
 // C: 2
 
-orders.forEach((order) => {
-    const status = order.paid ? 'Paid' : 'Unpaid';
-    // console.log(`Order ${order.orderId}: ${order.customer} - $${order.total} - Status: ${status}`);
-})
+// orders.forEach((order) => {
+//     const status = order.paid ? 'Paid' : 'Unpaid';
+//     // console.log(`Order ${order.orderId}: ${order.customer} - $${order.total} - Status: ${status}`);
+// })
 
-const firstUnpaidOrder = orders.find(order => !order.paid)
+// const firstUnpaidOrder = orders.find(order => !order.paid)
 // console.log(firstUnpaidOrder);
 
-const monitorIndex = orders.findIndex((order) => order.items.includes('Monitor'));
+// const monitorIndex = orders.findIndex((order) => order.items.includes('Monitor'));
 // console.log(monitorIndex);
 
 
@@ -173,3 +173,44 @@ console.log('isAllUsersVerified=>', isAllUsersVerified);
 
 const isCurrentRoleAllowed = allowedRoles.includes(currentUserRole)
 console.log('isCurrentRoleAllowed==>', isCurrentRoleAllowed);
+
+// 5. E-commerce Order Validation (Master Level)
+const orders = [
+    { orderId: 'A1', items: ['Laptop', 'Mouse'], total: 1025, paid: true, shipped: true },
+    { orderId: 'A2', items: ['Keyboard'], total: 75, paid: true, shipped: false },
+    { orderId: 'A3', items: ['Monitor'], total: 300, paid: false, shipped: false },
+    { orderId: 'A4', items: ['Desk', 'Chair'], total: 600, paid: true, shipped: true }
+];
+
+const requiredItems = ['Laptop', 'Monitor', 'Keyboard'];
+const availablePaymentMethods = ['credit_card', 'paypal', 'bank_transfer'];
+const selectedPayment = 'crypto';
+
+// Task A: Use some() to check if any order is unpaid
+// Task B: Use every() to check if all paid orders have been shipped
+// Task C: Use includes() to check if selectedPayment is available
+// Task D: Use some() to check if any order contains 'Laptop'
+// Task E: Use every() to check if all orders have at least one item
+// Expected:
+
+// A: true (Order A3 is unpaid)
+// B: false (Order A2 is paid but not shipped)
+// C: false (crypto is not in availablePaymentMethods)
+// D: true (Order A1 contains Laptop)
+// E: true (all orders have items)
+
+const isAnyOrderUnpaid = orders.some(order => !order.paid)
+console.log('isAnyOrderUnpaid', isAnyOrderUnpaid);
+
+const isAllOrderShipped = orders.every(order => order.paid && order.shipped)
+console.log('isAllOrderShipped==>', isAllOrderShipped);
+
+const isPaymentAvailable = availablePaymentMethods.includes(selectedPayment);
+console.log("==>", isPaymentAvailable);
+
+const isAnyOrderContainsLaptop = orders.some(order => order.items.includes('Laptop'))
+
+console.log('isAnyOrderContainsLaptop==>', isAnyOrderContainsLaptop);
+
+const isAtLeastOneItem = orders.every(order => order.items.length);
+console.log(';isAtLeastOneItem=>', isAtLeastOneItem);
